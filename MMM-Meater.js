@@ -52,9 +52,9 @@ Module.register("MMM-Meater", {
 		dataRequest.setRequestHeader('Authorization', 'Bearer ' +  self.config.token);
 		dataRequest.setRequestHeader('Accept-Language', this.config.language);
 		dataRequest.onreadystatechange = function() {
-			console.log(this.readyState);
+			// console.log(this.readyState);
 			if (this.readyState === 4) {
-				console.log(this.status);
+				// console.log(this.status);
 				if (this.status === 200) {
 					self.processData(JSON.parse(this.response));
 				} else if (this.status === 401) {
@@ -145,7 +145,6 @@ Module.register("MMM-Meater", {
 		if (this.loaded === false) { self.updateDom(self.config.animationSpeed) ; }
 		this.loaded = true;
 
-		console.log(data);
 		if (data) {
 			this.devices = data.data.devices;
 		} else {
