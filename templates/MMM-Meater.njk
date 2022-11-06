@@ -1,0 +1,28 @@
+{% if devices|length %}
+
+    <header>{{ "TITLE" | translate }}</header>
+
+    <div class="meater">
+        <table class="small table">
+            <tbody>
+                {% for device in devices %}
+                    <tr>
+                        <td class="meater_name bright">{{ device.cook.name }}</td>
+                        <td class="meater_data">{{ device.cook.temperature.target | convert_temperature("fahrenheit") | round  }}</td>
+                        <td class="meater_data">{{ device.temperature.ambient | convert_temperature("fahrenheit") | round  }}</td>
+                        <td class="meater_data">{{ device.updated_at | timestamp_to_time | datetimeformat('HH:mm')  }}</td>
+                    </tr>
+                    <tr>
+                        <td class="meater_state xsmall">{{ device.cook.state | text_to_key | translate }}</td>
+                        <td class="meater_data">{{ device.temperature.internal | convert_temperature("fahrenheit") | round  }}</td>
+                        <td class="meater_data">{{ device.cook.time.elapsed | secondsToHms }} </td>
+                        <td class="meater_data">{{ device.cook.time.remaining | secondsToHms }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    
+
+{% endif %}

@@ -1,0 +1,22 @@
+{
+    "TITLE": "Meater",
+    "UPDATE": "Mise à jour",
+    "LOADING": "Chargement",
+    "STATE": "État",
+    "TEMP_INTERNAL": "Internale",
+    "TEMP_AMBIENT": "Ambiente",
+    "TEMP_TARGET": "Cible",
+    "TIME_ELAPSED": "Écoulé",
+    "TIME_REMAINING": "Restant",
+    "UPDATED_AT": "Mise à jour",
+    "STATUS_NOT_STARTED": "Pas commencé",
+    "STATUS_CONFIGURED": "Configuré",
+    "STATUS_STARTED": "À débuté",
+    "STATUS_READY_FOR_RESTING": "Prêt pour le repos",
+    "STATUS_RESTING": "Repos",
+    "STATUS_SLIGHTLY_UNDERDONE": "Légèrement incomplet",
+    "STATUS_FINISHED": "Achevé",
+    "STATUS_SLIGHTLY": "Légèrement exagéré",
+    "STATUS_OVERDONE": "Exagéré",
+    "STATUS_OVERCOOK": "TROP CUIT!"
+}

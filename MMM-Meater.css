@@ -1,0 +1,44 @@
+/*
+ *
+ * {{MODULE_NAME}}
+ *
+ * {{AUTHOR_NAME}}
+ * {{LICENSE}} Licensed.
+ *
+ * Custom here your css module
+ *
+ */
+
+ div.meater {
+    display:        inline-block;
+}
+
+ .meater_header {
+    padding-left:   10px;
+    text-align:     center;
+    vertical-align: middle;
+}
+
+.meater_header_name {
+    padding-right:  5px;
+    text-align:     center;
+    vertical-align: middle;
+}
+
+.meater_name {
+    padding-right:  5px;
+    text-align:     left;
+    vertical-align: middle;
+}
+
+.meater_state {
+    padding-right:  5px;
+    text-align:     left;
+    vertical-align: top;
+}
+
+.meater_data {
+    padding-left:   10px;
+    text-align:     center;
+    vertical-align: middle;
+}
