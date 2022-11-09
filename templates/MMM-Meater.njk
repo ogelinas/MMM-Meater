@@ -10,7 +10,7 @@
                         <td class="meater_name bright">{{ device.cook.name }}</td>
                         <td class="meater_data">{{ device.cook.temperature.target | convert_temperature("fahrenheit") | round  }}</td>
                         <td class="meater_data">{{ device.temperature.ambient | convert_temperature("fahrenheit") | round  }}</td>
-                        <td class="meater_data">{{ device.updated_at | timestamp_to_time | datetimeformat('HH:mm')  }}</td>
+                        <td class="meater_data">{{ device.updated_at + device.cook.time.remaining | timestamp_to_time | datetimeformat('HH:mm')  }}</td>
                     </tr>
                     <tr>
                         <td class="meater_state xsmall">{{ device.cook.state | text_to_key | translate }}</td>
