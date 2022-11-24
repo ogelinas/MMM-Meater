@@ -52,9 +52,7 @@ Module.register("MMM-Meater", {
 		dataRequest.setRequestHeader('Authorization', 'Bearer ' +  self.config.token);
 		dataRequest.setRequestHeader('Accept-Language', this.config.language);
 		dataRequest.onreadystatechange = function() {
-			// console.log(this.readyState);
 			if (this.readyState === 4) {
-				// console.log(this.status);
 				if (this.status === 200) {
 					self.processData(JSON.parse(this.response));
 				} else if (this.status === 401) {
@@ -159,7 +157,6 @@ Module.register("MMM-Meater", {
 	// socketNotificationReceived from helper
 	socketNotificationReceived: function (notification, payload) {
 		if(notification === "MMM-Meater-NOTIFICATION_TEST") {
-			// set dataNotification
 			this.dataNotification = payload;
 			this.updateDom();
 		}

@@ -57,6 +57,7 @@
  * @property {Temperature} temperature - Full team name.
  * @property {Cook} cook - 3 letter team name.
  * @property {number} updated_at - Current score of the team.
+ * @property {number} finish_at - Current score of the team.
  */
 
 /**
@@ -78,8 +79,10 @@ module.exports = NodeHelper.create({
 	 */
 	socketNotificationReceived: function(notification, payload) {
 		if (notification === "MMM-Meater-NOTIFICATION_TEST") {
-			console.log("Working notification system. Notification:", notification, "payload: ", payload);
+			// console.log("Working notification system. Notification:", notification, "payload: ", payload);
 			// Send notification
+            devices = this.parseDevices(payload.data.devices);
+            payload.data.devices = devices;
 			this.sendNotificationTest(this.anotherFunction()); //Is possible send objects :)
 		}
 	},
@@ -112,13 +115,17 @@ module.exports = NodeHelper.create({
      *
      * @returns {Devices} Parsed series information.
      */
-	 parseDevice(devices = {}) {
+	 parseDevices(devices = {}) {
+        // console.log(devices);
         if (!devices || devices.length === 0) {
             return null;
         }
-        return {
-            device: this.parseDevice(devices.id),
+        d = [];
+        for (let i = 0; i < devices.length; i++) {
+            const device = devices[i];
+            d.push(this.parseDevice(device));
         }
+        return d
     },
 
 	/**
@@ -136,8 +143,9 @@ module.exports = NodeHelper.create({
         return {
             id: device.id,
             temperature: this.parseTemperature(device.temperature),
-			cook: this.parseTime(device.cook),
+			cook: this.parseCook(device.cook),
 			updated_at: device.updated_at,
+            finish_at:device.updated_at + 436,
         }
     },
 
@@ -149,7 +157,7 @@ module.exports = NodeHelper.create({
      *
      * @returns {Temperature} Parsed series information.
      */
-	 parseTemperatureCook(temperature = {}) {
+	 parseTemperature(temperature = {}) {
         if (!temperature || temperature.length === 0) {
             return null;
         }
@@ -176,7 +184,7 @@ module.exports = NodeHelper.create({
             name: cook.name,
 			state: cook.state,
 			temperature: this.parseTemperatureCook(cook.temperature),
-			time: this.parseTime(cook.time),
+            time: this.parseTime(cook.time),
         }
     },
 
